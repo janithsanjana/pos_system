@@ -159,7 +159,7 @@ namespace POS_Mrtech.Pages
                             connection.Close();
                             MessageBox.Show("Updated");
 
-                            //reshan
+                            //reshan hthrthtrhth
                         }
                     }
                 }
