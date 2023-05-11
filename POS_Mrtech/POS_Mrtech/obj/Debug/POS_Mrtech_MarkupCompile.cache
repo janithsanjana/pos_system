@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\Janith\pos\POS_Mrtech\POS_Mrtech\obj\Debug\
+C:\Users\PC\Desktop\POS\pos_system\POS_Mrtech\POS_Mrtech\obj\Debug\
 POS_Mrtech
 none
 false
 DEBUG;TRACE
-E:\Janith\pos\POS_Mrtech\POS_Mrtech\App.xaml
+C:\Users\PC\Desktop\POS\pos_system\POS_Mrtech\POS_Mrtech\App.xaml
 17-937006437
 
 2361217712
-3285868464
+32-1563505795
 MainWindow.xaml;Pages\AddNewCategory.xaml;Pages\addProduct.xaml;Pages\AdminDashboard.xaml;Pages\CategoryList.xaml;Pages\dashboard.xaml;Pages\inventory.xaml;Pages\inventoryPage.xaml;Pages\productpreviews.xaml;Pages\productsList.xaml;Pages\reports.xaml;Pages\settings.xaml;Pages\users.xaml;View\UserControls\CancelBtn.xaml;View\UserControls\HeroBtn.xaml;View\UserControls\MainMenu.xaml;View\UserControls\TextBoxComp.xaml;
 
 False
