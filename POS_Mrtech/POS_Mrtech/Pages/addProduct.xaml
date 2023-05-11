@@ -1,0 +1,102 @@
+﻿<Page x:Class="POS_Mrtech.Pages.addProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:POS_Mrtech.Pages"
+      xmlns:UserControls="clr-namespace:POS_Mrtech.View.UserControls"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="677" d:DesignWidth="1200"
+      Title="addProduct">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#EEFDFE" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="30">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="LightGray" />
+                                            <Setter TargetName="border" Property="BorderBrush" Value="Gray" />
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="DarkGray" />
+                                            <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Grid.Resources>
+                <!---<Button Click="GoBack_Click" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Width="40" Height="40">
+                    <StackPanel Orientation="Horizontal" Width="23" Height="25">
+                        <Path Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" Fill="Black" Width="23" Height="18" Stretch="Fill"/>
+                    </StackPanel>
+                </Button>-->
+                <TextBlock Text="Add Product" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Foreground="White" Margin="0,10,0,0" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Vertical" Margin="0,70,0,0">
+                    <StackPanel.Resources>
+                        <Style TargetType="UserControls:TextBoxComp">
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="Margin" Value="60, 10"/>
+                            <Setter Property="Width" Value="320"/>
+                        </Style>
+                        <Style TargetType="local:CategoryList">
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="Margin" Value="60, 10"/>
+                            <Setter Property="Width" Value="320"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <UserControls:TextBoxComp x:Name="tb_pName" Placeholder="Product Name"/>
+                    <UserControls:TextBoxComp x:Name="tb_pCategory" Placeholder="Category Name"/>
+                    <UserControls:TextBoxComp x:Name="tb_pBarCode" Placeholder="Bar Code id"/>
+                    <UserControls:TextBoxComp x:Name="tb_pStock" Placeholder="Stock"/>
+                    <UserControls:TextBoxComp x:Name="tb_pPrice" Placeholder="Price"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="7" HorizontalAlignment="Center">
+                        <UserControls:HeroBtn Margin="0,20,0,0" Content="Save" Width="100" Height="30" Click="save_product_click"/>
+                        <UserControls:CancelBtn Margin="10,20,0,0" Content="Cancel" Width="100" Height="30" Click="CancelButton_Click"/>
+                    </StackPanel>
+                    <materialDesign:Snackbar x:Name="snackbar" HorizontalAlignment="center" VerticalAlignment="Bottom" Margin="0,40,0,0" MessageQueue="{Binding ElementName=snackbarMessageQueue}" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition  Height="60"/>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" Name="PreviewFrame" Background="#323B44"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
+                <UserControls:HeroBtn x:Name="btnSeePreview" Content="See Preview" Click="gotoPreviewWindow" Visibility="{Binding ElementName=PreviewFrame, Path=Content,  Converter={local:ContentToVisibilityConverter}}" />
+                <UserControls:HeroBtn Content="Add New Category" Click="AddNewCategory_click"/>
+                <UserControls:HeroBtn Content="View Category" Click="clickViewcategory"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

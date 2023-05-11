@@ -1,0 +1,38 @@
+﻿<Button x:Class="POS_Mrtech.View.UserControls.HeroBtn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pages="clr-namespace:POS_Mrtech.Pages"
+        Content="{Binding BtnContent}"
+        Cursor="Hand">
+    <Button.Style>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="white" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="20, 2" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Margin" Value="10, 1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                                Background="DeepSkyBlue"
+                                BorderThickness="0"
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#00A1D7" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="Gray" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#007EA9" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Button.Style>
+</Button>

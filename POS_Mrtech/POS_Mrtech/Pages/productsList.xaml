@@ -1,0 +1,45 @@
+﻿<Page x:Class="POS_Mrtech.Pages.productsList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:POS_Mrtech.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="productsList">
+    <Page.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="#212529" />
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="ColumnHeaderHeight" Value="40" />
+            <Setter Property="HeadersVisibility" Value="All" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="GridLinesVisibility" Value="Horizontal" />
+            <Setter Property="RowHeaderWidth" Value="0" />
+            <Setter Property="RowBackground" Value="#2A2A2A" />
+            <Setter Property="AlternatingRowBackground" Value="#323B44" />
+            <Setter Property="CanUserResizeRows" Value="True" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="Padding" Value="30,10" />
+        </Style>
+    </Page.Resources>
+
+    <DataGrid x:Name="productDataGrid" Style="{StaticResource {x:Type DataGrid}}" CellEditEnding="productDataGrid_CellEditEnding">
+        <DataGrid.Columns>
+            <DataGridTextColumn Width="5*" x:Name="id_product" Header="Product ID" Binding="{Binding ProductID}" />
+            <DataGridTextColumn Width="30*" x:Name="product_name" Header="product_name" Binding="{Binding ProductName}" />
+            <DataGridTextColumn Width="20*" x:Name="category_id" Header="category_id" Binding="{Binding CategoryName}" />
+            <DataGridTextColumn Width="20*" x:Name="bar_code_id" Header="bar_code_id" Binding="{Binding BarcodeID}" />
+            <DataGridTextColumn Width="10*" x:Name="stock" Header="stock" Binding="{Binding Price}" />
+            <DataGridTextColumn Width="10*" x:Name="price" Header="price" Binding="{Binding Stock}" />
+        </DataGrid.Columns>
+    </DataGrid>
+
+</Page>
